@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.mapper.System.SystemkeywordMapper">
+
+    <!-- 查询全部系统配置信息 -->
+    <select id="getSelect_All_SystemConfig" resultType="SystemConfig">
+        select id,configTypeName from as_systemconfig
+    </select>
+
+    <!-- 查询全部关键词 -->
+    <select id="getSelect_All_Keywords" resultType="Keywords">
+        select id,keywords,customName,agentName,serviceYears,preRegDatetime,preRegPassDatetime,isPass,checkStatus,isUse,price from as_keywords
+        <where>
+            <if test="keywords!=null and keywords!=''">and keywords=#{keywords}</if>
+        </where>
+        limit #{page},#{limit}
+    </select>
+
+    <!-- 查询关键词的数量 -->
+    <select id="getSelect_Keywords_Count" resultType="int">
+        select count(id) from as_keywords
+    </select>
+
+    <!-- 修改关键词信息 -->
+    <update id="getUpdate_Keywords" parameterType="Keywords">
+        update as_keywords
+        <set>
+            <if test="productType!=null and productType!=''">productType=#{productType},</if>
+            <if test="serviceYears!=null and serviceYears!=''">serviceYears=#{serviceYears},</if>
+            <if test="price!=null and price!=''">price=#{price},preRegFrozenMoney=#{price},</if>
+        </set>
+    </update>
+
+    <!-- 修改关键词状态 -->
+    <update id="getDelect_Keywords">
+        update as_keywords set isUse=#{isUse} where id=#{id}
+    </update>
+</mapper>

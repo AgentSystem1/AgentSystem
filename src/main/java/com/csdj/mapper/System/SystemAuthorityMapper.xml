@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.mapper.System.SystemAuthorityMapper">
+
+    <!-- 所有角色供选择 -->
+    <select id="GetRoleName" resultType="Role">
+        select id,roleName from as_role
+    </select>
+
+    <!-- 查询角色是否启用功能 -->
+    <select id="getSelect_FunctionId" resultType="int">
+        SELECT p.functionId FROM as_function as f,as_role_premission as p WHERE  f.id = p.functionId and p.roleId=#{roleId}
+    </select>
+
+
+    <!-- 查询全部功能权限 -->
+    <select id="getSelect_All_Function" resultType="Function">
+        select id,functionName,creationTime,funcUrl,isStart
+        from as_function
+    </select>
+
+    <!--  添加角色权限 -->
+    <insert id="getInsert_Premission" parameterType="Premission">
+        insert into as_role_premission(roleId,functionId,creationTime,createdBy,isStart)
+        values(#{roleId},#{functionId},#{creationTime},#{createdBy},#{isStart})
+    </insert>
+
+    <!-- 查询权限id -->
+    <select id="getSelect_Id" resultType="int">
+        SELECT id from as_role_premission where roleId=#{roleId} and functionId=#{functionId}
+    </select>
+
+    <!-- 删除角色权限 -->
+    <delete id="getDelete_Premission">
+        delete from as_role_premission
+        where id=#{id}
+    </delete>
+</mapper>

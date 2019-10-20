@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.mapper.System.SystemFinanceMapper">
+
+    <!-- 初始信息打印 -->
+    <select id="userListCode" resultType="User">
+        SELECT id,userCode FROM as_user
+    </select>
+
+    <!--打印初始信息 -->
+    <select id="systemConfigListName" resultType="SystemConfig">
+        SELECT id,configTypeName from as_systemconfig
+    </select>
+
+    <!-- 新增 -->
+    <insert id="ACCADD">
+        INSERT INTO as_accountdetail(userId,detailType,detailTypeName,money,accountMoney,memo,detailDateTime) VALUES(#{userId},#{detailType},#{detailTypeName},#{money},#{accountMoney},#{memo},#{detailDateTime});
+    </insert>
+</mapper>

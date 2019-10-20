@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.mapper.User.UserMapper">
+
+    <!-- 查询登录是否正确 -->
+    <select id="UserLogin" resultType="User">
+        SELECT * FROM as_user WHERE userCode = #{userCode} and userPassword = #{userPassword}
+    </select>
+
+    <!-- 查询账户余额 -->
+    <select id="AccountDetailMoney" resultType="AccountDetail">
+        SELECT * FROM as_accountdetail WHERE userId = #{userId}
+    </select>
+
+    <!-- 修改登录密码 -->
+    <update id="UpdatePass">
+        UPDATE as_user SET userPassword = #{againUserPass} WHERE id = #{userId}
+    </update>
+
+    <!-- 查询账户明细 -->
+    <select id="AccountDetailDetails" resultType="AccountDetail">
+        select detail.*,user.userName from as_accountdetail as detail,as_user as user WHERE user.id = detail.userId and detail.userId = #{userId}
+    </select>
+
+
+
+</mapper>

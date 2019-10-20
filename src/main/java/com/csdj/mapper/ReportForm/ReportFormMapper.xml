@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.mapper.ReportForm.ReportFormMapper">
+    <!-- 代理商余额查询 -->
+    <select id="GetAgentBalance" resultType="User">
+           select u.id,userName,money
+             FROM as_user as u,as_account as a
+             where u.id = a.userId
+    </select>
+
+    <!-- 预付款、代理商流水报表 -->
+    <select id="GetPayment" resultType="AccountDetail">
+         SELECT a.id,userName,money,accountMoney,memo,detailDateTime
+        FROM as_accountdetail as a,as_user as u
+        WHERE a.userId = u.id
+    </select>
+
+    <!-- 产品分类数量/金额总汇 -->
+    <select id="Totalsummoney" resultType="SystemConfig">
+       SELECT id,configTypeName,configTypeValue,configValue FROM as_systemconfig
+    </select>
+</mapper>
