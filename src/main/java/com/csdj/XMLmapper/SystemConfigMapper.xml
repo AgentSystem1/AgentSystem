@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.csdj.XMLmapper.SystemConfigMapper">
+
+
+
+
+
+	<!--账务类型-->
+	<select id="get_AccountingTypeInfo" resultType="systemconfig">
+		select * from as_systemconfig where configType=1
+	</select>
+
+	<insert id="add_AccountingTypeInfo">
+		insert into as_systemconfig(configType,configTypeName,isStart) values(1,#{configTypeName},#{isStart});
+	</insert>
+
+	<delete id="del_AccountingTypeInfo">
+		delete from as_systemconfig where id=#{id}
+	</delete>
+
+	<update id="upd_AccountingTypeInfo">
+		update as_systemconfig set configTypeName=#{configTypeName},isStart=#{isStart} where id=#{id}
+	</update>
+
+
+	<!--服务类型-->
+	<select id="get_ServeTypeInfo" resultType="systemconfig">
+		select * from as_systemconfig where configType=2
+	</select>
+
+	<insert id="add_ServeTypeInfo">
+		insert into as_systemconfig(configType,configTypeName,configValue,isStart) values(2,#{configTypeName},#{configValue},#{isStart});
+	</insert>
+
+	<update id="upd_ServeTypeInfo">
+		update as_systemconfig set configTypeName=#{configTypeName},configValue=#{configValue},isStart=#{isStart} where id=#{id}
+	</update>
+
+
+	<!--客户类型-->
+	<select id="get_ClientTypeInfo" resultType="systemconfig">
+		select * from as_systemconfig where configType=5
+	</select>
+
+	<insert id="add_ClientTypeInfo">
+		insert into as_systemconfig(configType,configTypeName,isStart) values(5,#{configTypeName},#{isStart});
+	</insert>
+
+	<update id="upd_ClientTypeInfo">
+		update as_systemconfig set configTypeName=#{configTypeName},isStart=#{isStart} where id=#{id}
+	</update>
+
+	<delete id="del_ClientTypeInfo">
+		delete from as_systemconfig where id=#{id}
+	</delete>
+
+
+	<!--证件类型-->
+	<select id="get_CredentialsInfo" resultType="systemconfig">
+		select * from as_systemconfig where configType=6
+	</select>
+
+	<insert id="add_CredentialsInfo">
+		insert into as_systemconfig(configType,configTypeName,isStart) values(6,#{configTypeName},#{isStart});
+	</insert>
+
+	<update id="upd_CredentialsInfo">
+		update as_systemconfig set configTypeName=#{configTypeName},isStart=#{isStart} where id=#{id}
+	</update>
+
+	<delete id="del_CredentialsInfo">
+		delete from as_systemconfig where id=#{id}
+	</delete>
+
+
+	<!--优惠类型-->
+	<select id="get_PreferentialInfo" resultType="systemconfig">
+		select * from as_systemconfig where configType=7
+	</select>
+
+	<insert id="add_PreferentialInfo">
+		insert into as_systemconfig(configType,configTypeName,configTypeValue,configValue,isStart) values(7,#{configTypeName},#{configTypeValue},#{configValue},#{isStart});
+	</insert>
+
+	<update id="upd_PreferentialInfo">
+		update as_systemconfig set configTypeName=#{configTypeName},configTypeValue=#{configTypeValue},configValue=#{configValue},isStart=#{isStart} where id=#{id}
+	</update>
+
+	<delete id="del_PreferentialInfo">
+		delete from as_systemconfig where id=#{id}
+	</delete>
+
+
+	<!--服务年限-->
+	<select id="get_ServeYearsInfo" resultType="systemconfig">
+		select * from as_systemconfig where configType=3
+	</select>
+
+	<update id="upd_ServeYearsInfo">
+		update as_systemconfig set configValue=#{configValue} where id=#{id}
+	</update>
+
+
+	<!--App地址-->
+	<select id="get_AppAddressInfo" resultType="systemconfig">
+		select * from as_systemconfig where configType=4
+	</select>
+
+	<update id="upd_AppAddressInfo">
+		update as_systemconfig set configValue=#{configValue} where id=#{id}
+	</update>
+
+
+
+	<select id="getSelect_All_SystemConfig" resultType="SystemConfig">
+
+        select id,configTypeName from as_systemconfig
+
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>
