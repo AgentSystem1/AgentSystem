@@ -1199,12 +1199,12 @@
       <workItem from="1571183911664" duration="12610000" />
       <workItem from="1571270658205" duration="6343000" />
       <workItem from="1571356817222" duration="9984000" />
-      <workItem from="1571616101069" duration="1282000" />
+      <workItem from="1571616101069" duration="1530000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138134000" />
+    <option name="totallyTimeSpent" value="138382000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1284,6 +1284,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="一个代理商系统" />
+    <option name="LAST_COMMIT_MESSAGE" value="一个代理商系统" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/csdj/service/AgentService.java">
